@@ -3,4 +3,9 @@ project(Labs)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(Labs main.cpp functions.h test/test.cpp test/test.h)
+
+# Make sure to choose only ONE option
+
+add_executable(Labs functions.h test/test.cpp ) # uncomment this line to run tests
+
+#add_executable(Labs main.cpp functions.h) # uncomment this line to run main program

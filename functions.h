@@ -10,16 +10,9 @@
 #include <vector>
 #include <iostream>
 #include <exception>
+#include <cmath>
+#include <iomanip>
 
-long sumVector(std::vector<int> arr) {
-    long acc = 0;
-    for(int i = 0; i < arr.size(); i++) {
-        acc += arr.at(i);
-    }
-    return acc;
-}
-
-long sumVectorModN(std::vector<int> arr, int n) {
-    if (n <= 0) throw std::logic_error("Modular arithmetic undefined for non-positive integers!");
-    return sumVector(arr) % n;
+double round_off(double x, int digits){
+    return floor(x * pow(10.0,digits) + 0.5 )/ pow(10.0, digits);
 }

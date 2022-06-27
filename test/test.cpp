@@ -1,28 +1,30 @@
-//
-// Created by Askar Nurbekov on 6/24/22.
-//
 
-#include "test.h"
+
 #include "../functions.h"
 
 #define CATCH_CONFIG_MAIN
 #include "catch.hpp"
 
-TEST_CASE("Vector sum is computed correctly", "[vector]"){
-    std::vector<int> vec = {1, 2, 3};
-    REQUIRE(sumVector(vec) == 6);
-    REQUIRE_FALSE(sumVector(vec) != 6);
+TEST_CASE("Round to 2 digits implemented correctly. Test1", "[round_off]"){
+
+    REQUIRE(fabs(round_off(125.123456789,2) - 125.12 ) < 0.001);
+
 }
 
-TEST_CASE("This fails", "[vector]") {
-    std::vector<int> vec = {1, 2, 3};
-    REQUIRE(sumVector(vec) == 75); //Inside part evaluates to false, so this test will fail
+TEST_CASE("Round to 4 digits implemented correctly. Test2", "[round_off]"){
+
+    REQUIRE(fabs(round_off(125.123456789,4) - 125.1235) < 0.00001);
+
 }
 
-TEST_CASE("Vector sum modulo n is computed correctly", "[vector][modulo]") {
-    std::vector<int> vec = {1, 2, 3};
-    REQUIRE(sumVectorModN(vec, 5) == 1);
-    REQUIRE(sumVectorModN(vec, 4) == 2);
-    REQUIRE_FALSE(sumVectorModN(vec, 1) == 1); //Any number mod 1 is 0, expression is false, so assertion passes
-    REQUIRE_THROWS(sumVectorModN(vec, -1)); //Should throw a logic_error, so test should pass
+TEST_CASE("Round to whole implemented correctly. Test3", "[round_off]"){
+
+    REQUIRE(fabs(round_off(125.987654321,0) - 126.) < 0.001);
+
+}
+
+TEST_CASE("Round to 5 digits implemented correctly. Test4", "[round_off]"){
+
+    REQUIRE(fabs(round_off(125.987654321, 5) - 125.98765) < 0.000001);
+
 }
